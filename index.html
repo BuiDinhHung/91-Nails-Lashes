@@ -214,13 +214,22 @@ h2{font-size:clamp(2.3rem,5.4vw,4.4rem)}
 .statement{padding:clamp(80px,11vw,150px) 0;background:var(--paper-2)}
 .statement p.big{font-family:var(--display);font-size:clamp(1.75rem,3.8vw,3.1rem);line-height:1.28;letter-spacing:-.01em;max-width:22em;margin-top:26px}
 .statement p.big em{color:var(--rose-ink)}
-.pill{display:inline-block;vertical-align:middle;width:2.3em;height:1.15em;border-radius:999px;overflow:hidden;margin:0 .12em;position:relative;top:-.06em;background:var(--nude)}
-.pill img{width:100%;height:100%;object-fit:cover}
-.statement .cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:clamp(40px,6vw,80px)}
+.statement .cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;margin-top:clamp(40px,6vw,80px);align-items:start}
 .statement .cols > div{grid-column:span 4;color:var(--ink-soft)}
-.statement .cols > div:first-child{grid-column:5 / span 4}
+.statement .cols > .st-media{grid-column:1 / span 3;grid-row:1 / span 2}
+.statement .cols > .st-media + div{grid-column:5 / span 4}
 .statement .cols h3{font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
-@media (max-width:860px){.statement .cols{grid-template-columns:1fr;gap:28px}.statement .cols > div,.statement .cols > div:first-child{grid-column:auto}}
+.st-media{position:relative;padding:0 18% 18% 0}
+.st-media figure{margin:0;overflow:hidden;background:var(--nude)}
+.st-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.st-arch{aspect-ratio:3/4;border-radius:999px 999px 10px 10px}
+.st-round{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;border-radius:50%;border:6px solid var(--paper-2)}
+@media (hover:hover){.st-media figure:hover img{transform:scale(1.04)}}
+@media (max-width:860px){
+  .statement .cols{grid-template-columns:1fr;gap:28px}
+  .statement .cols > div,.statement .cols > .st-media,.statement .cols > .st-media + div{grid-column:auto;grid-row:auto}
+  .st-media{max-width:340px;width:80%}
+}
 
 /* ---------- Services ---------- */
 .services{padding:clamp(90px,12vw,160px) 0}
@@ -509,9 +518,13 @@ h2{font-size:clamp(2.3rem,5.4vw,4.4rem)}
   <div class="wrap">
     <h2 class="kicker rv" id="studio-title" style="font-family:var(--sans);font-size:.72rem;line-height:1.4;letter-spacing:.22em">Unser Studio</h2>
     <p class="big rv">
-      Bei uns dreht sich alles um gepflegte Hände <span class="pill"><img src="assets/img/nail4.webp" width="743" height="1022" alt="" loading="lazy"></span>, Designs mit Persönlichkeit <span class="pill"><img src="assets/img/nail13.webp" width="987" height="977" alt="" loading="lazy"></span> und einen Moment <em>Ruhe</em> im Alltag.
+      Bei uns dreht sich alles um gepflegte Hände, Designs mit Persönlichkeit und einen Moment <em>Ruhe</em> im Alltag.
     </p>
     <div class="cols">
+      <div class="st-media rv">
+        <figure class="st-arch"><img src="assets/img/nail4.webp" width="743" height="1022" alt="Nude-Nägel mit weißen Schleifen" loading="lazy"></figure>
+        <figure class="st-round"><img src="assets/img/nail13.webp" width="987" height="977" alt="Stiletto-Nägel mit 3D-Rosen und Chrom-Linien" loading="lazy"></figure>
+      </div>
       <div class="rv d1">
         <h3>Nägel</h3>
         <p>Von dezentem Natur-Look und klassischem French bis zu Ombré, Glitzer, Chrom und handgemalter Nail Art – wir setzen deinen Wunsch sorgfältig um.</p>
